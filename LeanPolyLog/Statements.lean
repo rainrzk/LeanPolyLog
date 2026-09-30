@@ -15,6 +15,8 @@ import LeanPolyLog.Proofs.A008
 import LeanPolyLog.Proofs.A009
 import LeanPolyLog.Proofs.A010
 import LeanPolyLog.Proofs.A011
+import LeanPolyLog.Proofs.A012
+import LeanPolyLog.Proofs.A013
 
 /-!
 # The sixteen identities of *PolyLog Integrals* (rainrzk, 2022)
@@ -97,13 +99,13 @@ theorem A011 : ∫ x in (0 : ℝ)..1, Lir 2 x / (x * Real.sqrt (1 - x ^ 2)) =
 
 /-- A012: `∫₀¹ arctan x / (x+1) · log x dx = -π³/64 + (G/2) log 2`. -/
 theorem A012 :
-    ∫ x in (0 : ℝ)..1, Real.arctan x / (x + 1) * Real.log x = -π ^ 3 / 64 + G / 2 * Real.log 2 := by
-  sorry
+    ∫ x in (0 : ℝ)..1, Real.arctan x / (x + 1) * Real.log x = -π ^ 3 / 64 + G / 2 * Real.log 2 :=
+  Proofs.A012
 
 /-- A013: `∫₀¹ arctan x / (x+1) · log² x dx = -(π²/24) G - (π³/32) log 2 + (21π/64) ζ(3)`. -/
 theorem A013 : ∫ x in (0 : ℝ)..1, Real.arctan x / (x + 1) * Real.log x ^ 2 =
-    -π ^ 2 / 24 * G - π ^ 3 / 32 * Real.log 2 + 21 * π / 64 * zeta3 := by
-  sorry
+    -π ^ 2 / 24 * G - π ^ 3 / 32 * Real.log 2 + 21 * π / 64 * zeta3 :=
+  Proofs.A013
 
 /-- A014 (simplified form):
 `∫₀¹ log x · log(1+x) / (1+x²) dx = 11π³/128 + (3π/32) log²2 - 2G log 2 - 3 Im Li₃((1+i)/2)`. -/

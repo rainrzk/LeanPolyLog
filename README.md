@@ -29,8 +29,8 @@ Finished proofs have their own check. [`tests/Axioms.lean`](tests/Axioms.lean) u
 | A009 | ∫₀^{π/2} x² cot x | ✅ | ✅ | classical (Euler); [MSE 2015](https://math.stackexchange.com/a/1406313) |
 | A010 | ∫₀^{π/4} x² tan² x | ✅ | ✅ | equivalent form: [MSE 2014](https://math.stackexchange.com/q/629940) |
 | A011 | ∫₀¹ Li₂(x)/(x√(1−x²)) | ✅ | ✅ | [MSE 2019](https://math.stackexchange.com/a/3085474) |
-| A012 | ∫₀¹ arctan x · log x/(1+x) | ✅ | ⏳ | [MSE 2016](https://math.stackexchange.com/q/1842284) |
-| A013 | ∫₀¹ arctan x · log² x/(1+x) | ✅ | ⏳ | Vălean, *(Almost) Impossible Integrals, Sums, and Series* (2019) |
+| A012 | ∫₀¹ arctan x · log x/(1+x) | ✅ | ✅ | [MSE 2016](https://math.stackexchange.com/q/1842284) |
+| A013 | ∫₀¹ arctan x · log² x/(1+x) | ✅ | ✅ | Vălean, *(Almost) Impossible Integrals, Sums, and Series* (2019) |
 | A014 | ∫₀¹ log x · log(1+x)/(1+x²) | ✅ | ⏳ | [MSE 2018](https://math.stackexchange.com/a/2972249) (same simplified form) |
 | A015 | ∫₀^{π/2} x log² sin x | ✅ | ⏳ | [MSE 2016](https://math.stackexchange.com/questions/1640940/#comment3346568_1640940); Borwein–Straub (2012), [arXiv:1103.3893](https://arxiv.org/abs/1103.3893) |
 | A016 | ∫₀¹ Li₃(x)/(x√(1−x²)) | ✅ | ⏳ | [MSE 2020](https://math.stackexchange.com/a/3870374) |
