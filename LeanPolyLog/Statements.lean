@@ -5,6 +5,8 @@ Authors: rainrzk
 -/
 import LeanPolyLog.Defs
 import LeanPolyLog.Proofs.A001
+import LeanPolyLog.Proofs.A002
+import LeanPolyLog.Proofs.A003
 import LeanPolyLog.Proofs.A004
 import LeanPolyLog.Proofs.A005
 import LeanPolyLog.Proofs.A006
@@ -40,13 +42,13 @@ theorem A001 : Li 2 Complex.I = ((-π ^ 2 / 48 : ℝ) : ℂ) + (G : ℂ) * Compl
 /-- A002: `Li₂(1/(1+i)) = 5π²/96 - log²2/8 + i(π log 2 / 8 - G)`. -/
 theorem A002 : Li 2 (1 / (1 + Complex.I)) =
     ((5 * π ^ 2 / 96 - Real.log 2 ^ 2 / 8 : ℝ) : ℂ)
-      + ((π / 8 * Real.log 2 - G : ℝ) : ℂ) * Complex.I := by
-  sorry
+      + ((π / 8 * Real.log 2 - G : ℝ) : ℂ) * Complex.I :=
+  Proofs.A002
 
 /-- A003: `Li₂((√5-1)/2) = π²/10 - log²((1+√5)/2)`. -/
 theorem A003 :
-    Lir 2 ((Real.sqrt 5 - 1) / 2) = π ^ 2 / 10 - Real.log ((1 + Real.sqrt 5) / 2) ^ 2 := by
-  sorry
+    Lir 2 ((Real.sqrt 5 - 1) / 2) = π ^ 2 / 10 - Real.log ((1 + Real.sqrt 5) / 2) ^ 2 :=
+  Proofs.A003
 
 /-- A004 (corrected): `∫₀¹ log(1+x²)/x dx = π²/24`. -/
 theorem A004 : ∫ x in (0 : ℝ)..1, Real.log (1 + x ^ 2) / x = π ^ 2 / 24 :=

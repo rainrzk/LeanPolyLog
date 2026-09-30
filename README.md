@@ -19,8 +19,8 @@ Finished proofs have their own check. [`tests/Axioms.lean`](tests/Axioms.lean) u
 | id | identity | statement | proof | prior appearances / credit |
 |---|---|---|---|---|
 | A001 | Li₂(i) = −π²/48 + iG | ✅ | ✅ | classical: Li_s(±i) = −2^{−s}η(s) ± iβ(s) |
-| A002 | Li₂(1/(1+i)) | ✅ | ⏳ | classical (Landen at z = i); [MSE 2014](https://math.stackexchange.com/a/984371) |
-| A003 | Li₂((√5−1)/2) = π²/10 − log²φ | ✅ | ⏳ | classical (Landen); see Zagier (2007) |
+| A002 | Li₂(1/(1+i)) | ✅ | ✅ | classical (Landen at z = i); [MSE 2014](https://math.stackexchange.com/a/984371) |
+| A003 | Li₂((√5−1)/2) = π²/10 − log²φ | ✅ | ✅ | classical (Landen); see Zagier (2007) |
 | A004 | ∫₀¹ log(1+x²)/x = π²/24 | ✅ | ✅ | classical (G&R 4.291.1 with t = x²); corrected value, see [ERRATA](blueprint/ERRATA.md) |
 | A005 | ∫₀¹ log²(1+x²)/x³ | ✅ | ✅ | no prior appearance found |
 | A006 | ∫₀^{π/4} log cos, log sin | ✅ | ✅ | classical (G&R 4.224) |
