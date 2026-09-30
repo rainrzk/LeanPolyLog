@@ -9,18 +9,20 @@ Mathlib has neither polylogarithms nor Catalan's constant yet, so [`LeanPolyLog/
 
 All sixteen statements are in [`LeanPolyLog/Statements.lean`](LeanPolyLog/Statements.lean). Finished proofs are in [`LeanPolyLog/Proofs/`](LeanPolyLog/Proofs), one file per identity, and helper lemmas are in [`LeanPolyLog/Lemmas/`](LeanPolyLog/Lemmas). `Statements.lean` only references the proofs, so it remains a single list of everything claimed.
 
-## How statements are checked
+## How statements and proofs are checked
 Lean checks proofs, not whether a statement says what was meant. So every formal statement also has a **numerical twin** in [`tests/check_statements.py`](tests/check_statements.py): the same formula, evaluated with mpmath at 80 digits. CI requires every twin to agree to at least 60 digits.
+
+Finished proofs have their own check. [`tests/Axioms.lean`](tests/Axioms.lean) uses `#guard_msgs` to confirm that each one depends only on `propext`, `Classical.choice` and `Quot.sound`. If a proof ever falls back to `sorry`, CI fails.
 
 ## Status
 
 | id | identity | statement | proof | prior appearances / credit |
 |---|---|---|---|---|
-| A001 | Li₂(i) = −π²/48 + iG | ✅ | ⏳ | classical: Li_s(±i) = −2^{−s}η(s) ± iβ(s) |
+| A001 | Li₂(i) = −π²/48 + iG | ✅ | ✅ | classical: Li_s(±i) = −2^{−s}η(s) ± iβ(s) |
 | A002 | Li₂(1/(1+i)) | ✅ | ⏳ | classical (Landen at z = i); [MSE 2014](https://math.stackexchange.com/a/984371) |
 | A003 | Li₂((√5−1)/2) = π²/10 − log²φ | ✅ | ⏳ | classical (Landen); see Zagier (2007) |
-| A004 | ∫₀¹ log(1+x²)/x = π²/24 | ✅ | ⏳ | classical (G&R 4.291.1 with t = x²); corrected value, see [ERRATA](blueprint/ERRATA.md) |
-| A005 | ∫₀¹ log²(1+x²)/x³ | ✅ | ⏳ | no prior appearance found |
+| A004 | ∫₀¹ log(1+x²)/x = π²/24 | ✅ | ✅ | classical (G&R 4.291.1 with t = x²); corrected value, see [ERRATA](blueprint/ERRATA.md) |
+| A005 | ∫₀¹ log²(1+x²)/x³ | ✅ | ✅ | no prior appearance found |
 | A006 | ∫₀^{π/4} log cos, log sin | ✅ | ✅ | classical (G&R 4.224) |
 | A007 | ∫₀^{π/4} x log cos x | ✅ | ⏳ | [MSE 2019](https://math.stackexchange.com/a/3200545) |
 | A008 | ∫₀^{π/4} x log(1+tan x) | ✅ | ⏳ | equivalent arctan form: [MSE 2019](https://math.stackexchange.com/a/3441045) |

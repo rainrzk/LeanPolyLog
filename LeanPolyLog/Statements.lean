@@ -4,6 +4,9 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: rainrzk
 -/
 import LeanPolyLog.Defs
+import LeanPolyLog.Proofs.A001
+import LeanPolyLog.Proofs.A004
+import LeanPolyLog.Proofs.A005
 import LeanPolyLog.Proofs.A006
 
 /-!
@@ -27,8 +30,8 @@ open Real
 namespace LeanPolyLog
 
 /-- A001: `Li₂(i) = -π²/48 + iG`. -/
-theorem A001 : Li 2 Complex.I = ((-π ^ 2 / 48 : ℝ) : ℂ) + (G : ℂ) * Complex.I := by
-  sorry
+theorem A001 : Li 2 Complex.I = ((-π ^ 2 / 48 : ℝ) : ℂ) + (G : ℂ) * Complex.I :=
+  Proofs.A001
 
 /-- A002: `Li₂(1/(1+i)) = 5π²/96 - log²2/8 + i(π log 2 / 8 - G)`. -/
 theorem A002 : Li 2 (1 / (1 + Complex.I)) =
@@ -42,13 +45,13 @@ theorem A003 :
   sorry
 
 /-- A004 (corrected): `∫₀¹ log(1+x²)/x dx = π²/24`. -/
-theorem A004 : ∫ x in (0 : ℝ)..1, Real.log (1 + x ^ 2) / x = π ^ 2 / 24 := by
-  sorry
+theorem A004 : ∫ x in (0 : ℝ)..1, Real.log (1 + x ^ 2) / x = π ^ 2 / 24 :=
+  Proofs.A004
 
 /-- A005: `∫₀¹ log²(1+x²)/x³ dx = π²/12 - log²2`. -/
 theorem A005 :
-    ∫ x in (0 : ℝ)..1, Real.log (1 + x ^ 2) ^ 2 / x ^ 3 = π ^ 2 / 12 - Real.log 2 ^ 2 := by
-  sorry
+    ∫ x in (0 : ℝ)..1, Real.log (1 + x ^ 2) ^ 2 / x ^ 3 = π ^ 2 / 12 - Real.log 2 ^ 2 :=
+  Proofs.A005
 
 /-- A006 (first half): `∫₀^{π/4} log cos x dx = G/2 - (π/4) log 2`. -/
 theorem A006_cos :
