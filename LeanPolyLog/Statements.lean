@@ -8,6 +8,10 @@ import LeanPolyLog.Proofs.A001
 import LeanPolyLog.Proofs.A004
 import LeanPolyLog.Proofs.A005
 import LeanPolyLog.Proofs.A006
+import LeanPolyLog.Proofs.A007
+import LeanPolyLog.Proofs.A008
+import LeanPolyLog.Proofs.A009
+import LeanPolyLog.Proofs.A010
 
 /-!
 # The sixteen identities of *PolyLog Integrals* (rainrzk, 2022)
@@ -65,23 +69,23 @@ theorem A006_sin :
 
 /-- A007: `∫₀^{π/4} x log cos x dx = πG/8 - (π²/32) log 2 - (21/128) ζ(3)`. -/
 theorem A007 : ∫ x in (0 : ℝ)..(π / 4), x * Real.log (Real.cos x) =
-    π * G / 8 - π ^ 2 / 32 * Real.log 2 - 21 / 128 * zeta3 := by
-  sorry
+    π * G / 8 - π ^ 2 / 32 * Real.log 2 - 21 / 128 * zeta3 :=
+  Proofs.A007
 
 /-- A008: `∫₀^{π/4} x log(1 + tan x) dx = (π²/64) log 2 - πG/8 + 21ζ(3)/64`. -/
 theorem A008 : ∫ x in (0 : ℝ)..(π / 4), x * Real.log (1 + Real.tan x) =
-    π ^ 2 / 64 * Real.log 2 - π * G / 8 + 21 * zeta3 / 64 := by
-  sorry
+    π ^ 2 / 64 * Real.log 2 - π * G / 8 + 21 * zeta3 / 64 :=
+  Proofs.A008
 
 /-- A009: `∫₀^{π/2} x² cot x dx = (π²/4) log 2 - (7/8) ζ(3)`. -/
 theorem A009 :
-    ∫ x in (0 : ℝ)..(π / 2), x ^ 2 * Real.cot x = π ^ 2 / 4 * Real.log 2 - 7 / 8 * zeta3 := by
-  sorry
+    ∫ x in (0 : ℝ)..(π / 2), x ^ 2 * Real.cot x = π ^ 2 / 4 * Real.log 2 - 7 / 8 * zeta3 :=
+  Proofs.A009
 
 /-- A010: `∫₀^{π/4} x² tan² x dx = -G + π²/16 - π³/192 + (π/4) log 2`. -/
 theorem A010 : ∫ x in (0 : ℝ)..(π / 4), x ^ 2 * Real.tan x ^ 2 =
-    -G + π ^ 2 / 16 - π ^ 3 / 192 + π / 4 * Real.log 2 := by
-  sorry
+    -G + π ^ 2 / 16 - π ^ 3 / 192 + π / 4 * Real.log 2 :=
+  Proofs.A010
 
 /-- A011: `∫₀¹ Li₂(x) / (x √(1-x²)) dx = (3/8) π² log 2 - (7/16) ζ(3)`. -/
 theorem A011 : ∫ x in (0 : ℝ)..1, Lir 2 x / (x * Real.sqrt (1 - x ^ 2)) =

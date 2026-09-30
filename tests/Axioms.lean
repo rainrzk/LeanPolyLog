@@ -22,3 +22,15 @@ CI runs it with `lake env lean tests/Axioms.lean`. Add a block here whenever a p
 
 /-- info: 'LeanPolyLog.A006_sin' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in #print axioms LeanPolyLog.A006_sin
+
+/-- info: 'LeanPolyLog.A007' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in #print axioms LeanPolyLog.A007
+
+/-- info: 'LeanPolyLog.A008' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in #print axioms LeanPolyLog.A008
+
+/-- info: 'LeanPolyLog.A009' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in #print axioms LeanPolyLog.A009
+
+/-- info: 'LeanPolyLog.A010' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in #print axioms LeanPolyLog.A010
