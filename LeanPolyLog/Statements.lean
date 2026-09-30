@@ -17,6 +17,7 @@ import LeanPolyLog.Proofs.A010
 import LeanPolyLog.Proofs.A011
 import LeanPolyLog.Proofs.A012
 import LeanPolyLog.Proofs.A013
+import LeanPolyLog.Proofs.A014
 
 /-!
 # The sixteen identities of *PolyLog Integrals* (rainrzk, 2022)
@@ -111,8 +112,8 @@ theorem A013 : ∫ x in (0 : ℝ)..1, Real.arctan x / (x + 1) * Real.log x ^ 2 =
 `∫₀¹ log x · log(1+x) / (1+x²) dx = 11π³/128 + (3π/32) log²2 - 2G log 2 - 3 Im Li₃((1+i)/2)`. -/
 theorem A014 : ∫ x in (0 : ℝ)..1, Real.log x * Real.log (x + 1) / (x ^ 2 + 1) =
     11 * π ^ 3 / 128 + 3 * π / 32 * Real.log 2 ^ 2 - 2 * G * Real.log 2
-      - 3 * (Li 3 ((1 + Complex.I) / 2)).im := by
-  sorry
+      - 3 * (Li 3 ((1 + Complex.I) / 2)).im :=
+  Proofs.A014
 
 /-- A015: `∫₀^{π/2} x log² sin x dx = Li₄(1/2) - 19π⁴/2880 + log⁴2/24 + π² log²2/12`. -/
 theorem A015 : ∫ x in (0 : ℝ)..(π / 2), x * Real.log (Real.sin x) ^ 2 =
