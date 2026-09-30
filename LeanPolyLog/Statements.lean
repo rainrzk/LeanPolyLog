@@ -14,6 +14,7 @@ import LeanPolyLog.Proofs.A007
 import LeanPolyLog.Proofs.A008
 import LeanPolyLog.Proofs.A009
 import LeanPolyLog.Proofs.A010
+import LeanPolyLog.Proofs.A011
 
 /-!
 # The sixteen identities of *PolyLog Integrals* (rainrzk, 2022)
@@ -91,8 +92,8 @@ theorem A010 : ∫ x in (0 : ℝ)..(π / 4), x ^ 2 * Real.tan x ^ 2 =
 
 /-- A011: `∫₀¹ Li₂(x) / (x √(1-x²)) dx = (3/8) π² log 2 - (7/16) ζ(3)`. -/
 theorem A011 : ∫ x in (0 : ℝ)..1, Lir 2 x / (x * Real.sqrt (1 - x ^ 2)) =
-    3 / 8 * π ^ 2 * Real.log 2 - 7 / 16 * zeta3 := by
-  sorry
+    3 / 8 * π ^ 2 * Real.log 2 - 7 / 16 * zeta3 :=
+  Proofs.A011
 
 /-- A012: `∫₀¹ arctan x / (x+1) · log x dx = -π³/64 + (G/2) log 2`. -/
 theorem A012 :

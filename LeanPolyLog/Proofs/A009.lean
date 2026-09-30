@@ -21,7 +21,8 @@ Let `J = ∫₀^{π/2} x log sin x dx`.
 Finally `F x = x² log sin x` is continuous on `[0, π/2]` (it tends to `0` at `0`), vanishes at both
 ends, and has derivative `2x log sin x + x² cot x` on `(0, π/2)`. Hence `A009 = -2J`.
 
-In Lean `cot 0 = 0` and `log 0 = 0`; single points do not affect the integrals.
+In Lean `cot 0 = 0` and `log 0 = 0`; single points do not affect the integrals. The helper
+lemmas and `integral_mul_log_sin` (the value of `J`) are public, and A011 reuses them.
 -/
 
 open Real MeasureTheory Set Filter Topology
@@ -29,7 +30,7 @@ open Real MeasureTheory Set Filter Topology
 namespace LeanPolyLog.Proofs
 
 /-- `x² ≤ (π²/4) sin x` on `[0, π/2]`, from Jordan's inequality `(2/π) x ≤ sin x`. -/
-private theorem sq_le_mul_sin {x : ℝ} (hx : x ∈ Icc 0 (π / 2)) : x ^ 2 ≤ π ^ 2 / 4 * sin x := by
+theorem sq_le_mul_sin {x : ℝ} (hx : x ∈ Icc 0 (π / 2)) : x ^ 2 ≤ π ^ 2 / 4 * sin x := by
   have hj := mul_le_sin hx.1 hx.2
   calc x ^ 2 ≤ π / 2 * x := by nlinarith [hx.1, hx.2]
     _ = π ^ 2 / 4 * (2 / π * x) := by field_simp; ring
@@ -37,7 +38,7 @@ private theorem sq_le_mul_sin {x : ℝ} (hx : x ∈ Icc 0 (π / 2)) : x ^ 2 ≤ 
 
 /-- `x ↦ x² log sin x` is continuous on `[0, π/2]`. At `0` it tends to `0`, because
 `|x² log sin x| ≤ (π²/4) |sin x log sin x|` there. -/
-private theorem continuousOn_sq_mul_log_sin :
+theorem continuousOn_sq_mul_log_sin :
     ContinuousOn (fun x : ℝ ↦ x ^ 2 * log (sin x)) (Icc 0 (π / 2)) := by
   intro x hx
   rcases eq_or_lt_of_le hx.1 with rfl | hx0
@@ -59,7 +60,7 @@ private theorem continuousOn_sq_mul_log_sin :
     exact ((continuousAt_id.pow 2).mul (continuous_sin.continuousAt.log hs)).continuousWithinAt
 
 /-- `x² cot x` is integrable on `[0, π/2]`, since it is bounded by `π²/4` there. -/
-private theorem intervalIntegrable_sq_mul_cot :
+theorem intervalIntegrable_sq_mul_cot :
     IntervalIntegrable (fun x : ℝ ↦ x ^ 2 * cot x) volume 0 (π / 2) := by
   have hπ : (0 : ℝ) ≤ π / 2 := by positivity
   have hcot : (fun x : ℝ ↦ x ^ 2 * cot x) = fun x ↦ x ^ 2 * (cos x / sin x) := by
@@ -81,7 +82,7 @@ private theorem intervalIntegrable_sq_mul_cot :
           exact sq_le_mul_sin ⟨hx.1.le, hx.2⟩
 
 /-- `∫₀^{π/2} x log sin x dx = -(π²/8) log 2 + (7/16) ζ(3)`. -/
-private theorem integral_mul_log_sin :
+theorem integral_mul_log_sin :
     ∫ x in (0 : ℝ)..(π / 2), x * log (sin x) = -(π ^ 2 / 8 * log 2) + 7 / 16 * zeta3 := by
   set J := ∫ x in (0 : ℝ)..(π / 2), x * log (sin x) with hJ
   have hπ : (0 : ℝ) ≤ π / 4 := by positivity

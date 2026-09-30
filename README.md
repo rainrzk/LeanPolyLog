@@ -28,7 +28,7 @@ Finished proofs have their own check. [`tests/Axioms.lean`](tests/Axioms.lean) u
 | A008 | ∫₀^{π/4} x log(1+tan x) | ✅ | ✅ | equivalent arctan form: [MSE 2019](https://math.stackexchange.com/a/3441045) |
 | A009 | ∫₀^{π/2} x² cot x | ✅ | ✅ | classical (Euler); [MSE 2015](https://math.stackexchange.com/a/1406313) |
 | A010 | ∫₀^{π/4} x² tan² x | ✅ | ✅ | equivalent form: [MSE 2014](https://math.stackexchange.com/q/629940) |
-| A011 | ∫₀¹ Li₂(x)/(x√(1−x²)) | ✅ | ⏳ | [MSE 2019](https://math.stackexchange.com/a/3085474) |
+| A011 | ∫₀¹ Li₂(x)/(x√(1−x²)) | ✅ | ✅ | [MSE 2019](https://math.stackexchange.com/a/3085474) |
 | A012 | ∫₀¹ arctan x · log x/(1+x) | ✅ | ⏳ | [MSE 2016](https://math.stackexchange.com/q/1842284) |
 | A013 | ∫₀¹ arctan x · log² x/(1+x) | ✅ | ⏳ | Vălean, *(Almost) Impossible Integrals, Sums, and Series* (2019) |
 | A014 | ∫₀¹ log x · log(1+x)/(1+x²) | ✅ | ⏳ | [MSE 2018](https://math.stackexchange.com/a/2972249) (same simplified form) |
