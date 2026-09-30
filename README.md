@@ -1,1 +1,0 @@
-Polylogarithm Problem Set.
