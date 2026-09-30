@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: rainrzk
 -/
 import LeanPolyLog.Defs
+import LeanPolyLog.Proofs.A006
 
 /-!
 # The sixteen identities of *PolyLog Integrals* (rainrzk, 2022)
@@ -16,7 +17,9 @@ the PDF:
 Lean checks proofs, not whether a statement says what was meant. Every statement here therefore
 has a numerical twin in `tests/check_statements.py`, checked to 60 digits.
 
-Proofs are filled in over time; `sorry` marks the ones still open (see the README).
+Proofs are filled in over time; `sorry` marks the ones still open (see the README). Finished
+proofs live in `LeanPolyLog/Proofs/` and are only referenced here, so this file stays a readable
+list of what is claimed.
 -/
 
 open Real
@@ -49,13 +52,13 @@ theorem A005 :
 
 /-- A006 (first half): `∫₀^{π/4} log cos x dx = G/2 - (π/4) log 2`. -/
 theorem A006_cos :
-    ∫ x in (0 : ℝ)..(π / 4), Real.log (Real.cos x) = G / 2 - π / 4 * Real.log 2 := by
-  sorry
+    ∫ x in (0 : ℝ)..(π / 4), Real.log (Real.cos x) = G / 2 - π / 4 * Real.log 2 :=
+  Proofs.A006_cos
 
 /-- A006 (second half): `∫₀^{π/4} log sin x dx = -G/2 - (π/4) log 2`. -/
 theorem A006_sin :
-    ∫ x in (0 : ℝ)..(π / 4), Real.log (Real.sin x) = -G / 2 - π / 4 * Real.log 2 := by
-  sorry
+    ∫ x in (0 : ℝ)..(π / 4), Real.log (Real.sin x) = -G / 2 - π / 4 * Real.log 2 :=
+  Proofs.A006_sin
 
 /-- A007: `∫₀^{π/4} x log cos x dx = πG/8 - (π²/32) log 2 - (21/128) ζ(3)`. -/
 theorem A007 : ∫ x in (0 : ℝ)..(π / 4), x * Real.log (Real.cos x) =

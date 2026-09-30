@@ -7,7 +7,7 @@ Mathlib has neither polylogarithms nor Catalan's constant yet, so [`LeanPolyLog/
 - `G`;
 - `zeta3`.
 
-All sixteen statements are in [`LeanPolyLog/Statements.lean`](LeanPolyLog/Statements.lean).
+All sixteen statements are in [`LeanPolyLog/Statements.lean`](LeanPolyLog/Statements.lean). Finished proofs are in [`LeanPolyLog/Proofs/`](LeanPolyLog/Proofs), one file per identity, and helper lemmas are in [`LeanPolyLog/Lemmas/`](LeanPolyLog/Lemmas). `Statements.lean` only references the proofs, so it remains a single list of everything claimed.
 
 ## How statements are checked
 Lean checks proofs, not whether a statement says what was meant. So every formal statement also has a **numerical twin** in [`tests/check_statements.py`](tests/check_statements.py): the same formula, evaluated with mpmath at 80 digits. CI requires every twin to agree to at least 60 digits.
@@ -21,7 +21,7 @@ Lean checks proofs, not whether a statement says what was meant. So every formal
 | A003 | Li₂((√5−1)/2) = π²/10 − log²φ | ✅ | ⏳ | classical (Landen); see Zagier (2007) |
 | A004 | ∫₀¹ log(1+x²)/x = π²/24 | ✅ | ⏳ | classical (G&R 4.291.1 with t = x²); corrected value, see [ERRATA](blueprint/ERRATA.md) |
 | A005 | ∫₀¹ log²(1+x²)/x³ | ✅ | ⏳ | no prior appearance found |
-| A006 | ∫₀^{π/4} log cos, log sin | ✅ | ⏳ | classical (G&R 4.224) |
+| A006 | ∫₀^{π/4} log cos, log sin | ✅ | ✅ | classical (G&R 4.224) |
 | A007 | ∫₀^{π/4} x log cos x | ✅ | ⏳ | [MSE 2019](https://math.stackexchange.com/a/3200545) |
 | A008 | ∫₀^{π/4} x log(1+tan x) | ✅ | ⏳ | equivalent arctan form: [MSE 2019](https://math.stackexchange.com/a/3441045) |
 | A009 | ∫₀^{π/2} x² cot x | ✅ | ⏳ | classical (Euler); [MSE 2015](https://math.stackexchange.com/a/1406313) |
@@ -33,7 +33,7 @@ Lean checks proofs, not whether a statement says what was meant. So every formal
 | A015 | ∫₀^{π/2} x log² sin x | ✅ | ⏳ | [MSE 2016](https://math.stackexchange.com/questions/1640940/#comment3346568_1640940); Borwein–Straub (2012), [arXiv:1103.3893](https://arxiv.org/abs/1103.3893) |
 | A016 | ∫₀¹ Li₃(x)/(x√(1−x²)) | ✅ | ⏳ | [MSE 2020](https://math.stackexchange.com/a/3870374) |
 
-✅ means the statement typechecks and its numerical twin passes; ⏳ means the proof is still `sorry`. The tutorial's proofs were written independently in 2022. The credits column records earlier public appearances found afterwards.
+In the statement column, ✅ means the statement typechecks and its numerical twin passes. In the proof column, ✅ means the Lean proof is complete: it has no `sorry`, and `#print axioms` lists only `propext`, `Classical.choice` and `Quot.sound`. ⏳ means the proof is still `sorry`. The tutorial's proofs were written independently in 2022. The credits column records earlier public appearances found afterwards.
 
 ## Build
 ```
