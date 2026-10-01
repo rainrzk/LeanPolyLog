@@ -16,6 +16,8 @@ Finished proofs have their own check. [`tests/Axioms.lean`](tests/Axioms.lean) u
 
 ## Status
 
+All sixteen identities are proven in Lean, with no `sorry`, and every proof depends only on the three standard axioms.
+
 | id | identity | statement | proof | prior appearances / credit |
 |---|---|---|---|---|
 | A001 | Li₂(i) = −π²/48 + iG | ✅ | ✅ | classical: Li_s(±i) = −2^{−s}η(s) ± iβ(s) |
@@ -32,10 +34,10 @@ Finished proofs have their own check. [`tests/Axioms.lean`](tests/Axioms.lean) u
 | A012 | ∫₀¹ arctan x · log x/(1+x) | ✅ | ✅ | [MSE 2016](https://math.stackexchange.com/q/1842284) |
 | A013 | ∫₀¹ arctan x · log² x/(1+x) | ✅ | ✅ | Vălean, *(Almost) Impossible Integrals, Sums, and Series* (2019) |
 | A014 | ∫₀¹ log x · log(1+x)/(1+x²) | ✅ | ✅ | [MSE 2018](https://math.stackexchange.com/a/2972249) (same simplified form) |
-| A015 | ∫₀^{π/2} x log² sin x | ✅ | ⏳ | [MSE 2016](https://math.stackexchange.com/questions/1640940/#comment3346568_1640940); Borwein–Straub (2012), [arXiv:1103.3893](https://arxiv.org/abs/1103.3893) |
-| A016 | ∫₀¹ Li₃(x)/(x√(1−x²)) | ✅ | ⏳ | [MSE 2020](https://math.stackexchange.com/a/3870374) |
+| A015 | ∫₀^{π/2} x log² sin x | ✅ | ✅ | [MSE 2016](https://math.stackexchange.com/questions/1640940/#comment3346568_1640940); Borwein–Straub (2012), [arXiv:1103.3893](https://arxiv.org/abs/1103.3893) |
+| A016 | ∫₀¹ Li₃(x)/(x√(1−x²)) | ✅ | ✅ | [MSE 2020](https://math.stackexchange.com/a/3870374) |
 
-In the statement column, ✅ means the statement typechecks and its numerical twin passes. In the proof column, ✅ means the Lean proof is complete: it has no `sorry`, and `#print axioms` lists only `propext`, `Classical.choice` and `Quot.sound`. ⏳ means the proof is still `sorry`. The tutorial's proofs were written independently in 2022. The credits column records earlier public appearances found afterwards.
+In the statement column, ✅ means the statement typechecks and its numerical twin passes. In the proof column, ✅ means the Lean proof is complete: it has no `sorry`, and `#print axioms` lists only `propext`, `Classical.choice` and `Quot.sound`. The tutorial's proofs were written independently in 2022. The credits column records earlier public appearances found afterwards.
 
 ## Build
 ```

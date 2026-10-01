@@ -18,6 +18,8 @@ import LeanPolyLog.Proofs.A011
 import LeanPolyLog.Proofs.A012
 import LeanPolyLog.Proofs.A013
 import LeanPolyLog.Proofs.A014
+import LeanPolyLog.Proofs.A015
+import LeanPolyLog.Proofs.A016
 
 /-!
 # The sixteen identities of *PolyLog Integrals* (rainrzk, 2022)
@@ -30,9 +32,9 @@ the PDF:
 Lean checks proofs, not whether a statement says what was meant. Every statement here therefore
 has a numerical twin in `tests/check_statements.py`, checked to 60 digits.
 
-Proofs are filled in over time; `sorry` marks the ones still open (see the README). Finished
-proofs live in `LeanPolyLog/Proofs/` and are only referenced here, so this file stays a readable
-list of what is claimed.
+Every statement is proven. The proofs live in `LeanPolyLog/Proofs/` and are only referenced here,
+so this file stays a readable list of what is claimed; `tests/Axioms.lean` checks that each one
+depends only on the standard axioms.
 -/
 
 open Real
@@ -117,12 +119,12 @@ theorem A014 : ∫ x in (0 : ℝ)..1, Real.log x * Real.log (x + 1) / (x ^ 2 + 1
 
 /-- A015: `∫₀^{π/2} x log² sin x dx = Li₄(1/2) - 19π⁴/2880 + log⁴2/24 + π² log²2/12`. -/
 theorem A015 : ∫ x in (0 : ℝ)..(π / 2), x * Real.log (Real.sin x) ^ 2 =
-    Lir 4 (1 / 2) - 19 * π ^ 4 / 2880 + Real.log 2 ^ 4 / 24 + π ^ 2 * Real.log 2 ^ 2 / 12 := by
-  sorry
+    Lir 4 (1 / 2) - 19 * π ^ 4 / 2880 + Real.log 2 ^ 4 / 24 + π ^ 2 * Real.log 2 ^ 2 / 12 :=
+  Proofs.A015
 
 /-- A016: `∫₀¹ Li₃(x) / (x √(1-x²)) dx = Li₄(1/2)/2 + 41π⁴/5760 + log⁴2/48 + π² log²2/6`. -/
 theorem A016 : ∫ x in (0 : ℝ)..1, Lir 3 x / (x * Real.sqrt (1 - x ^ 2)) =
-    Lir 4 (1 / 2) / 2 + 41 * π ^ 4 / 5760 + Real.log 2 ^ 4 / 48 + π ^ 2 * Real.log 2 ^ 2 / 6 := by
-  sorry
+    Lir 4 (1 / 2) / 2 + 41 * π ^ 4 / 5760 + Real.log 2 ^ 4 / 48 + π ^ 2 * Real.log 2 ^ 2 / 6 :=
+  Proofs.A016
 
 end LeanPolyLog
